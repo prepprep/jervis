@@ -1,5 +1,7 @@
 package com.kai.service.category;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -32,6 +34,12 @@ public class CategoryService extends BaseService implements ICategoryService {
 	categoryDao.save(toEntity(categoryDto));
 
 	return categoryDto;
+    }
+
+    @Override
+    public List<CategoryDto> getAll() {
+	
+	return toDtoList(categoryDao.getAll());
     }
 
 }

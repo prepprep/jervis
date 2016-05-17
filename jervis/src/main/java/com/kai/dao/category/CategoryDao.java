@@ -21,9 +21,9 @@ public class CategoryDao extends HibernateDao<Category> implements ICategoryDao 
     @SuppressWarnings("unchecked")
     @Override
     public List<Category> getAll() {
-	// TODO Auto-generated method stub
 	String stmt = "select c from Category c";
-	Query query = getSession().createQuery(stmt);
+	org.hibernate.SQLQuery query = getSession().createSQLQuery(stmt);
+	query.addEntity(Category.class);
 	return query.list();
     }
 
