@@ -29,9 +29,7 @@ public class JervisApplication {
     
     @Bean
     public InitializingBean initBean(IDBinitialiserService initService) {
-	return () -> {
-	  initService.initDb();  
-	};
+	return () -> initService.initDb();  
     }
     
 }
